@@ -8,8 +8,8 @@ Some information about you!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I am an accountant with a passion for technology and building great things.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[tucker.bohman@gmail.com](mailto:tucker.bohman@gmail.com)
