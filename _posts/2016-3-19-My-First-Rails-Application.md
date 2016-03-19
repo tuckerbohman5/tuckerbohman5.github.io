@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My First CLI Gem
+title: My First Rails Application
 ---
 
 Today I will be starting to build my first Rails application completely from scratch. I have been excited to start this project because just like the home library I will be building something I can actually use. For this project I am going to build a team task/project manager that my team at my current job can keep track of to use of current projects and make sure nothing slips past the cracks. This project will also fulfill the requirements for my third assesment for Learn.co. The requirements for this project are the following: 
@@ -16,3 +16,13 @@ Today I will be starting to build my first Rails application completely from scr
 9. You must make use of a nested resource with the appropriate RESTful URLs. Additionally, your nested resource must provide a form that relates to the parent resource. Imagine an application with user profiles. You might represent a person's profile via the RESTful URL of /profiles/1, where 1 is the primary key of the profile. If the person wanted to add pictures to their profile, you could represent that as a nested resource of /profiles/1/pictures, listing all pictures belonging to profile 1. The route /profiles/1/pictures/new would allow to me upload a new picture to profile 1.
 10. Your forms should correctly display validation errors. Your fields should be enclosed within a fields_with_errors class and error messages describing the validation failures must be present within the view.
 11. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. Logic present in your controllers should be encapsulated as methods in your models. Your views should use helper methods and partials to be as logic-less as possible. Follow patterns in the Rails Style Guide and the Ruby Style Guide. 
+
+Now the hardest part of all this which is going to be determining which models will be needed and their associations. I know the following is true: 
+* This application will require users, which will have a `name`, `email`, and `password.` 
+* This application will have Projects with a `title`, `due_date`, has_many `tasks`, has_one `project_manger`, has_many `comments`.
+* Tasks will belong to a user. 
+* Comments will belong to a project and a task. 
+
+
+
+
