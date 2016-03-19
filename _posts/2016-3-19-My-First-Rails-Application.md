@@ -18,6 +18,7 @@ Today I will be starting to build my first Rails application completely from scr
 11. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. Logic present in your controllers should be encapsulated as methods in your models. Your views should use helper methods and partials to be as logic-less as possible. Follow patterns in the Rails Style Guide and the Ruby Style Guide. 
 
 Now the hardest part of all this which is going to be determining which models will be needed and their associations. I know the following is true: 
+
 * This application will require users, which will have a `name`, `email`, and `password.` 
 * This application will have Projects with a `title`, `due_date`, has_many `tasks`, has_one `project_manger`, has_many `comments`.
 * Tasks will belong to a user. 
