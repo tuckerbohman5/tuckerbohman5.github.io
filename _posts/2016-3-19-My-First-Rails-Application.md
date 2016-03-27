@@ -21,8 +21,90 @@ Now the hardest part of all this which is going to be determining which models w
 
 * This application will require users, which will have a `name`, `email`, and `password.` 
 * This application will have Projects with a `title`, `due_date`, has_many `tasks`, has_one `project_manger`, has_many `comments`.
-* Tasks will belong to a user. 
+* Tasks can belong to a project or they can be seperate, they belong_to a user. 
 * Comments will belong to a project and a task. 
+
+I am sure the exact structure will probably change but for now lets start building one step at a time. Lets build the `User` model. 
+I will start by building the login/signup/logout functionality without using Devise or any other similar gem. Let the fun begin: 
+
+`rails g model User name:string email:string password_digest:string` 
+
+Rails has a great feature built in called a generator that can be used to build all sorts of great things including models, migrations, resources, and even the magical scaffold(which is so magical you should probably never use it.) That being said in the above line that we ran in the terminal it will create a User model for us and a migration file for the database. Lets take a look: 
+
+```ruby 
+class CreateUsers < ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :name
+      t.string :email
+      t.string :password_digest
+
+      t.timestamps null: false
+    end
+  end
+end
+```
+
+As you can see the model created the migration with the attributes we specified. The power of rails is real! Now we can go ahead and run `rake db:migrate` to update the schema of our database. Lets see what the User class looks like:
+
+```ruby
+class User < ActiveRecord::Base
+  has_secure_password
+end
+```
+
+I added the has_secure_password for the authentication functionality built into rails. Now lets start creating some views and the functionality needed for the user to log in and out or signup. We will then later add the `omniauth` functionallity to allow users to login via facebook. 
+
+
+I am not going to go into all all the details of how I created my entire application but you can see the source code here: [Fuego Task Manager](https://github.com/tuckerbohman5/rails-team-task-manager). After a week of coding the Application is finally ready to submit. However before I end this blog post I just wanted to mention one thing I learned during the struggle. I was really struggling to get Omniauth(login with Facebook) functionailty to work with my custom authentication. Here is what I was finally able to get to work. 
+
+```ruby
+def create
+    
+    if auth.nil?
+      @user = User.find_by(email: params[:user][:email])
+      if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id 
+      redirect_to root_path
+      else
+      @error = "Invalid Login Please Try Again"
+      render :new
+      end
+   
+    else 
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+      end
+      
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path
+
+    end
+  end 
+```
+
+My create method first checks to see if the return of auth is nil. auth is a method of omniauth that returns the credentials of a user after logging in to Facebook. If the user did not use Facebook it will validate that they are a valid user in the database and authenticate using the password they entered vs the password stored securily in the database. If the information matches they will be logged in storing the User's id in the session. If not they will be redirected to the login path with an error message. If they did use Facebook to login it will find or create a new user based on the uid sent to us from Facebook. That User's id is then stored in the session. The tricky part of all of this is that when logging in with Facebook the user does not have a password. In my user model I had 'has_secure_password' so active record was preventing the record from saving. I finally came up with a fix for this with the following code in the User model. 
+
+```ruby
+  before_save :social_login?
+  
+  def social_login?
+    if self.uid.nil?
+      has_secure_password
+    end
+  end
+```
+
+So the active record callback before_save calls the method :social_login? before it tries to save the record. If the User has an uid attribute it will not set require a password. This allows my application to allow for both normal login with email and passwords as well as logging in with facebook. 
+
+Overall this project has been a lot of fun to build and I have learned so much. This week I will be learning about adding Javascript and JQuery to my rails application and I will write another blog post about that process as well. 
+
+
+
+
+
 
 
 
