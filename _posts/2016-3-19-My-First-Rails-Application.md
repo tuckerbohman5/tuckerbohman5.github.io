@@ -101,6 +101,21 @@ So the active record callback before_save calls the method :social_login? before
 
 Overall this project has been a lot of fun to build and I have learned so much. This week I will be learning about adding Javascript and JQuery to my rails application and I will write another blog post about that process as well. 
 
+I celebrated early but I finally found a fix for user that works: 
+
+```ruby
+  has_secure_password 
+  before_save :social_login?
+
+  def social_login?
+    if uid
+      password = "f@c3b00k"
+    end
+  end
+```
+
+I think the long term solution for best security is going to be implementing the Devise gem but for now this is going to have to do.
+
 
 
 
