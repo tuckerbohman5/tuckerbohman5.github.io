@@ -12,4 +12,21 @@ I have been learning so much over the last few weeks. Last weekend I was able to
 4. Must have at least one link that loads, or updates a resource without reloading the page.
 5. Must translate the JSON responses into Javascript Model Objects. The Model Objects must have at least one method on the prototype. Formatters work really well for this. 
 
-I am going to be using the gem `active_model_serializer`. This gives us access to another generator which I will use to create a serializer for projects. `rails g serializer project`. 
+I am going to be using the gem `active_model_serializer`. This gives us access to another generator which I will use to create a serializer for projects. `rails g serializer project`. I then will add a few more attributes to the serializer: 
+
+```ruby
+class ProjectSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description, :due_date
+end
+```
+
+Then in our projects controller we will add the following to the show action: 
+
+```ruby
+respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @project }
+    end
+```
+
+Now if we navigate to `/projects/:id.json` we will see the project object in JSON format. This is just the beginning though as we will need to show this information in our views. 
