@@ -29,4 +29,47 @@ respond_to do |f|
     end
 ```
 
-Now if we navigate to `/projects/:id.json` we will see the project object in JSON format. This is just the beginning though as we will need to show this information in our views. 
+Now if we navigate to `/projects/:id.json` we will see the project object in JSON format. This is just the beginning though as we will need to show this information in our views. I decided to add the ability to view the comments on the project show page and then hide them. All this I did without needing to trigure a page refresh. Lets take a look at the javascript required for this task: 
+
+```javascript
+$('#loadComments').on('click', function(){
+  loadComments();
+});
+
+
+function loadComments() {
+    $('#projectComments').html('<h5>Comments:</h5>')
+    $.ajax({
+      method: 'GET',
+      url: this.href,
+      dataType: 'JSON'
+    }).done(function(response) {
+      var project = response["project"];
+      var comments = project["comments"];
+      for (var i = 0; i < comments.length; i++) {
+        var comment = comments[i];
+        
+        var commentHtml = '';
+        commentHtml += "<p>" + comment["user"]["name"] + " said " + comment["content"] + "</p>";
+        $('#projectComments').append(commentHtml);
+      }
+      $('#loadComments').hide();
+      $('#hideComments').show();
+    })
+}
+```
+
+When a user clicks on the button with the id of `load comments` it triggers the loadComments function. This uses ajax to send a get request to my rails backend. `this.href` references the current project such as '/project/3' with 3 being the id. When it receives the response in JSON we are able to parse that data by looping through each comment and creating html with that comment and appending it to the project comments div. I then make sure to hide the load comments button and show the hide comments button. I have the hide comments button hidden when the page loads: 
+
+```javascript
+$(document).ready(
+   function()
+   {
+     $('#hideComments').hide();
+   }
+);
+```
+
+Another feature I added was the ability to load the description of a project on the home page with a `more info` button. 
+
+
