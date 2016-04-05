@@ -72,4 +72,69 @@ $(document).ready(
 
 Another feature I added was the ability to load the description of a project on the home page with a `more info` button. 
 
+```javascript
+$('.moreInfo').on('click', function() {
+    // event.preventDefualt();
+    
+    $.ajax({
+      method: 'GET',
+      url: '/projects/' + this.attributes[1].value,
+      dataType: 'JSON'
+    }).done(function(response) {
+      var id = response["project"]["id"];
+      var description = response["project"]["description"];
+      $('p[data-id="'+ id +'"]').text(description);
+      $('a.moreInfo[data-id="'+ id +'"]').hide();
+      $('a.hideInfo[data-id="'+ id +'"]').show();
+    })
+      })
+
+  $('.hideInfo').on('click', function(){
+    var id = this.attributes[1].value;
+    $(this).hide();
+    $('p[data-id="'+ id +'"]').text('');
+    $('a.moreInfo[data-id="'+ id +'"]').show();
+  })
+```
+
+This uses ajax to load the description of the project and hide it very similar to the load comments functionality. The other feature I added was the ability to view the users and the amount of tasks they have: 
+
+```javascript
+$('#viewUsers').on('click', function() {
+    $('#viewUsers').hide();
+    $('#hideUsers').show();
+    $.ajax({
+      method: 'GET',
+      url: '/users',
+      dataType: 'JSON'
+    }).done(function(response) {
+      var usersDiv = $('#users');
+      var users = response["users"];
+      
+      
+      for (var i = 0; i < users.length; i++){
+        
+        var user = {
+          name: users[i]["name"],
+          taskCount: users[i]["tasks"].length
+        }
+          
+        usersDiv.append('<p>' + user.name + ' has ' + user.taskCount + ' tasks!</p>');
+      }
+        
+      })
+
+    })
+  $('#hideUsers').on('click', function(){
+    $('#users').html('');
+    $('#viewUsers').show();
+    $('#hideUsers').hide();
+```
+
+This uses ajax to load all of the users and then loops through each user from the response creating a JS object user for each user in the response. The user object then has two attributes name and taskCount. This information is then displayed appeneded to the users div. Listing username has user.taskCount tasks. I have enjoyed learning Javascript and JQuery and can see great potential in the possible uses I will have for it. I am going to continue to make this application better and definitely add some additionaly CSS to make it more user friendly and looking great. I will also be working on building my first Angular.JS application soon. Until then....
+
+
+
+
+
 
