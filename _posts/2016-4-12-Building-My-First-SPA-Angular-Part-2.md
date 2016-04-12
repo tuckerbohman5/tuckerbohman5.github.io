@@ -46,7 +46,23 @@ lib/assets/bower_components -----> angular
                              | --> angular-ui-router
 ```
 
- 
+We now need to require these files in our Javascript Manifest file, but first we need to actually create that file `app/assets/javascripts/application.js` : 
+
+```
+//= require angular
+//= require angular-ui-router
+//= require angular-resource
+//= require_tree .
+```
+
+We now need to have our template load our Javascript. We can go to app/views/layouts/application.html.erb and add the following line:
+
+```
+<%= javascript_include_tag ‘application’ %> 
+```
+
+
+
 
 
 
