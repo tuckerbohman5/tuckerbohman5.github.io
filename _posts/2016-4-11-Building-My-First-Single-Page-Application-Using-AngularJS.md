@@ -11,3 +11,7 @@ I am going to start with building the Rails backend and then we will move into b
 Note: We are using a postgres database and we will skip adding javascript for now since we will be adding Angular.JS to our application later. Now that we have the basics its time to start building the models for our library. Lets take a few minutes and decide exactly what models and what properties those models should have in our library. 
 
 ![Picture of database plan](http://tuckerbohman5.github.io/images/ng-lib-db.jpg "Database Plan For Library")
+
+This is just the two main tables teachers who will be the users of this application and the books which is what this library is all about. 
+
+Lets create these two models first and then we can add all of the smaller tables. 
