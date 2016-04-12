@@ -19,3 +19,17 @@ Lets create these two models first and then we can add all of the smaller tables
 Then the book model:
 `rails g model Book title:string author_id:integer reading_level_id:integer teacher_id:integer`
 We will add category later on when we decide exactly how the relationship should be. For now lets go ahead and generate the other simple tables we will need. School, Author, Reading Level, and Grade. Then we will migrate our database and create some seed data. Creating seed data is tedious and takes time but it will be very helpful to test the functionality of my application. 
+
+Now we will build our RestfulAPI starting in the config/routes.rb file:
+
+```ruby
+Rails.application.routes.draw do
+  namespace :api, defaults:{format: :json} do
+    namespace :v1 do
+      resources :teachers, :books, :authors, :grades, :reading_levels, :schools
+    end
+  end
+end
+```
+
+This will create our API as well as versioning for our API. We are chosing to format the data to json by default to make it easy to interact with that data in our Angular front end. If you look at the routes by running `rake routes` you will also see that we have a basic CRUD application available to us now. 
