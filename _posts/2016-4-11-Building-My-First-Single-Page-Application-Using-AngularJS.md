@@ -14,4 +14,8 @@ Note: We are using a postgres database and we will skip adding javascript for no
 
 This is just the two main tables teachers who will be the users of this application and the books which is what this library is all about. 
 
-Lets create these two models first and then we can add all of the smaller tables. 
+Lets create these two models first and then we can add all of the smaller tables. Lets start with the teacher model: 
+`rails g model Teacher title:string first_name:string last_name:string grade_id:integer school_id:integer email:string password_digest:string`
+Then the book model:
+`rails g model Book title:string author_id:integer reading_level_id:integer teacher_id:integer`
+We will add category later on when we decide exactly how the relationship should be. For now lets go ahead and generate the other simple tables we will need. School, Author, Reading Level, and Grade. Then we will migrate our database and create some seed data. Creating seed data is tedious and takes time but it will be very helpful to test the functionality of my application. 
