@@ -8,4 +8,4 @@ This will be the first in a series of blog posts as I build my final project for
 
 I am going to start with building the Rails backend and then we will move into building an awesome Angular.JS front-end down the road. First things first lets create our basic rails app using the rails new generator: 
 `$ rails new library --database=postgresql --skip-javascript` 
-Note: We are using a postgres database and we will skip adding javascript for now since we will be adding Angular.JS to our application later. 
+Note: We are using a postgres database and we will skip adding javascript for now since we will be adding Angular.JS to our application later. Now that we have the basics its time to start building the models for our library. Lets take a few minutes and decide exactly what models and what properties those models should have in our library. 
