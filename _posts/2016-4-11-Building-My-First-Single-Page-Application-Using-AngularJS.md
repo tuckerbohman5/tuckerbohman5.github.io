@@ -32,4 +32,49 @@ Rails.application.routes.draw do
 end
 ```
 
-This will create our API as well as versioning for our API. We are chosing to format the data to json by default to make it easy to interact with that data in our Angular front end. If you look at the routes by running `rake routes` you will also see that we have a basic CRUD application available to us now. 
+This will create our API as well as versioning for our API. We are chosing to format the data to json by default to make it easy to interact with that data in our Angular front end. If you look at the routes by running `rake routes` you will also see that we have a basic CRUD application available to us now. Now that we have our routes we need to create controllers for each of our models. Let the fun begin. It is important to remember that because we have our routes nested inside the api/v1 namespace we will need to create our controllers in within controllers/api/v1. Some of our models will be very complicated when it comes to different controller actions but lets go ahead and look at the basics. controllers/api/v1/schools_controller.rb:
+
+```ruby
+module Api
+  module V1 
+    class SchoolsController < ApplicationController 
+      skip_before_filter :verify_authenticity_token 
+      respond_to :json 
+      def index 
+        respond_with(School.all.order("id DESC"))
+      end 
+      def show 
+        respond_with(School.find(params[:id]))
+      end 
+      def create 
+        @school = School.new(school_params) 
+        if @school.save 
+          respond_to do |format|
+            format.json { render :json => @school }
+          end 
+        end 
+      end 
+      def update 
+        @school = School.find(params[:id])
+        if @school.update(school_params) 
+          respond_to do |format| 
+            format.json { render :json => @school }
+          end 
+        end 
+      end 
+ 
+      def destroy 
+        respond_with School.destroy(params[:id]) 
+      end 
+      private 
+        def school_params 
+          params.require(:school).permit(:name) 
+        end 
+    end 
+  end
+end
+```
+
+Now if we start the rails server `rails s` and navigate to localhost:3000/api/v1/schools we will see the JSON for all of the schools. Pretty awesome right? Well we are just getting started. I will go ahead and create the rest of the controllers we need. 
+
+I will go ahead and create the rest of the controllers.
