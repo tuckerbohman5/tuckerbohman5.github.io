@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building My First SPA Using Angular.js
+title: Building My First SPA Using Angular.js(Part 1)
 ---
 
 
@@ -75,6 +75,6 @@ module Api
 end
 ```
 
-Now if we start the rails server `rails s` and navigate to localhost:3000/api/v1/schools we will see the JSON for all of the schools. Pretty awesome right? Well we are just getting started. I will go ahead and create the rest of the controllers we need. 
+Now if we start the rails server `rails s` and navigate to localhost:3000/api/v1/schools we will see the JSON for all of the schools. Pretty awesome right? Well we are just getting started. I will go ahead and create the rest of the controllers we need but we now have a basic API set up. Now what? In the next post we will look into how exactly we connect our rails API to angular.JS. 
 
-I will go ahead and create the rest of the controllers.
+
