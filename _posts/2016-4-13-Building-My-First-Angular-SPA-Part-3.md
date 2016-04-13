@@ -56,7 +56,74 @@ angular
  .module('app', ['ui.router', 'ngResource', 'templates'])
 ```
 
+Lets create the following files that we specified in app.js as our template html files: 
 
+```
+app/assets/javascripts/templates/home.html
+app/assets/javascripts/templates/home/new.html
+app/assets/javascripts/templates/home/books.html
+```
+
+Now lets add some html to our templates so they aren't so boring. I am going to start with home.html:
+
+```html 
+<div class="navbar">
+  <h1>Angular Classroom Library</h1>
+  <hr>
+  <br>
+  <a href="#" ui-sref="home.new" ui-sref-active="active">New Note</a>
+  <a href="#" ui-sref="home.books" ui-sref-active="active">My Books</a>
+</div>
+<br>
+<hr>
+<div ui-view></div>
+```
+
+We have two links with the ui-sref linking to the other two states. The ui-sref-active attribute changes the class of the link to active when it is the current state. The bottom div ui-view is where the nested states will load their html when state changes. We can add some css to see these changes in our app/assets/stylesheets/application.css: 
+
+```css
+/*
+ *= require_tree .
+ *= require_self
+ */
+a {
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  background-color: green;
+  border: solid 2px black;
+}
+.active {
+  background-color: blue;
+}
+```
+
+This will make the background color blue when the links state is active and green when it is not. Now we can move on to updating our other two templates. Remember that we are making everything very simple right now and then we will make everything more complex, but for now we just want to get angular and rails working. In our app/assets/javascripts/templates/home/new.html lets add the following: 
+
+```html
+<h1>New book</h1>
+<form>
+ <label for="title">Title</label>
+ <input name="title">
+ <label for="author">Author</label>
+ <input name="author">
+ <input type="submit" value="Add Book">
+</form>
+```
+
+In our app/assets/javascripts/templates/home/books.html lets add a simple view for our books.
+
+```html
+<h1>Notes</h1>
+<ul>
+  <li ng-repeat="book in ctrl.books">
+    <h3>{{ book.title }}</h3>
+    <p>
+      {{ book.author }}
+    </p>
+  </li>
+</ul>
+```
 
 
 
