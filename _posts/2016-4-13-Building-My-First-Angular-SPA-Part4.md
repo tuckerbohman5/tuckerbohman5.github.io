@@ -24,10 +24,10 @@ Notice that we will be using $resource inside of our model. Now that we have a b
 angular
   .module('app')
   .controller('BooksController', BooksController);
-function BooksController() {
+function BooksController(Book) {
   var ctrl = this;
   ctrl.books = Book.query();
 }
 ```
 
-Here we changed the ctrl.books from an array to the result of querying our books table. 
+Here we changed the ctrl.books from an array to the result of querying our books table. It is also important to make sure we pass in Book to BooksController. We will now get a list of all the books in our database in the my books page. But it isn't exactly working because we do not have the author data coming across in our json. Lets work on fixing this next. 
