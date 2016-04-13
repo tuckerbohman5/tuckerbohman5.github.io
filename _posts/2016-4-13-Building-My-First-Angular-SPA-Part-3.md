@@ -125,5 +125,41 @@ In our app/assets/javascripts/templates/home/books.html lets add a simple view f
 </ul>
 ```
 
+We are still not connecting to our database yet but we will just create mock data in our controller to use in these views. Lets create our BooksController now. Lets create a new file app/assets/javascripts/angular-app/controllers/BooksController.js:
+
+```javascript
+angular
+  .module('app')
+  .controller('BooksController', BooksController);
+function BooksController() {
+  var ctrl = this;
+  ctrl.books = [
+    {
+      title: 'Harry Potter',
+      author: 'J.K. Rowling'
+    },
+    {
+      title: 'Hunger Games',
+      author: 'Suzanne Collins'
+    },
+    {
+      title: 'The Giver',
+      author: 'Lois Lowry'
+    }
+  ];
+}
+```
+
+Now lets create a simple HomeController in app/assets/javascripts/angular-app/controllers/HomeController.js:
+
+```javascript
+angular
+  .module('app')
+  .controller('HomeController', HomeController);
+function HomeController() {
+}
+```
+
+Now lets start up our rails server and see what we get. 
 
 
