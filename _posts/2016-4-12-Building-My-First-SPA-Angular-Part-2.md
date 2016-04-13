@@ -89,7 +89,7 @@ angular
 
 In this file we created our module named 'app' and injected two dependencies that we will use in our application. `ui.router` which will come in handy when we create routes and help us keep track of state in our SPA. `ngResource` will help us communicate with our rails API backend. Now lets test to make sure our angular application is working by binding some simple text in our view. In app/views/application/index.html.erb lets add the following: 
 
-```js
+```javascript
 {{ "Angular's Classroom Library" }}
 ```
 
