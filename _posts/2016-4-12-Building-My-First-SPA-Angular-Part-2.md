@@ -89,8 +89,8 @@ angular
 
 In this file we created our module named 'app' and injected two dependencies that we will use in our application. `ui.router` which will come in handy when we create routes and help us keep track of state in our SPA. `ngResource` will help us communicate with our rails API backend. Now lets test to make sure our angular application is working by binding some simple text in our view. In app/views/application/index.html.erb lets add the following: 
 
-```
-{{"Angular's Classroom Library"}}
+```js
+{{ "Angular's Classroom Library" }}
 ```
 
 Now if we start up our rails server and navigate to the hopepage we should see "Angular's Classroom Library" instead of a blank page. Congratulations we now have created a very simple angular application. However we have not started communicating with our Rails API yet. I will cover how to do that in the next post but for now go celebrate you deserve it. 
