@@ -37,3 +37,26 @@ angular
 
 We now have created three basic routes using $stateProvider. $stateProvider is a service built into Angular that allows us to call routes using the .state function. It takes in two arguments: 1) Our route name 2) An object with our keys each state will use such as the url, templateUrl, and controller. We will need to create our templateUrls and controllers but first it is important to note that the home.new and home.books routes are nested routes so in our browser they will show localhost:3000/#/new and localhost:3000/#/books. We will get into building our controllers in just a bit but first we need to fix an issue with rails. 
 
+When we use Angular with rails we are going to place all of our views inside of a `templates` folder. However, how can we tell rails about this templates folder? Lucky for us, someone already went through the hard work and create a gem for us to use so all we need to do is add the following to our gemfile and run bundle install. 
+
+```
+gem 'angular-rails-templates'
+```
+
+Then we will add the following to our javascript manifest(app/assets/javascripts/application.js): 
+
+```javascript
+//= require angular-rails-templates
+```
+
+The last step is to inject 'templates' into our 'app' module in our app.js file: 
+
+```javascript
+angular
+ .module('app', ['ui.router', 'ngResource', 'templates'])
+```
+
+
+
+
+
