@@ -61,6 +61,27 @@ We now need to have our template load our Javascript. We can go to app/views/lay
 <%= javascript_include_tag ‘application’ %> 
 ```
 
+Alright our next step is to actually make our application do something so lets go ahead and create a new home page for our web app. In our config/routes.rb lets add a new root route. 
+
+```
+root "application#index"
+```
+
+This will trigger the index method in the application controller which means we now need to add that method to our application_controller.rb. 
+
+```
+def index
+end
+```
+
+Then we need to create the file app/views/application/index.html.erb which can be blank for now. Now if we start our rails server we will see a blank webpage in the browser instead of the default rails landing page. We are now ready to start implementing AngularJS. Lets start by editing the app/views/layouts/application.html.erb and add angular to our base template:
+
+```
+<body ng-app="app">
+```
+
+This will initialize our angular module 'app' into our application, but wait a minute we haven't created any angular modules. Lets do that now. 
+
 
 
 
