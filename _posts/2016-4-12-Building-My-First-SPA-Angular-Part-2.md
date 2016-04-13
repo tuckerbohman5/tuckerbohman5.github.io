@@ -80,7 +80,23 @@ Then we need to create the file app/views/application/index.html.erb which can b
 <body ng-app="app">
 ```
 
-This will initialize our angular module 'app' into our application, but wait a minute we haven't created any angular modules. Lets do that now. 
+This will initialize our angular module 'app' into our application, but wait a minute we haven't created any angular modules. Lets do that now. Lets create a folder app/assets/javascripts/angular-app where we will place all of our angular files. And withing that folder lets create our angular module in a file named app.js: 
+
+```
+angular 
+  .module('app', ['ui.router', 'ngResource']);
+```
+
+In this file we created our module named 'app' and injected two dependencies that we will use in our application. `ui.router` which will come in handy when we create routes and help us keep track of state in our SPA. `ngResource` will help us communicate with our rails API backend. Now lets test to make sure our angular application is working by binding some simple text in our view. In app/views/application/index.html.erb lets add the following: 
+
+```
+{{"Angular's Classroom Library"}}
+```
+
+Now if we start up our rails server and navigate to the hopepage we should see "Angular's Classroom Library" instead of a blank page. Congratulations we now have created a very simple angular application. However we have not started communicating with our Rails API yet. I will cover how to do that in the next post but for now go celebrate you deserve it. 
+
+![Picture of Anchorman Cast Jumping](http://tuckerbohman5.github.io/images/anchorman-yes-jumping.gif "Celebrate")
+
 
 
 
