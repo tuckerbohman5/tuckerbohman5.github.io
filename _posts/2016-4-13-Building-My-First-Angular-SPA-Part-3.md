@@ -160,6 +160,8 @@ function HomeController() {
 }
 ```
 
-Now lets start up our rails server and see what we get. 
+Now lets start up our rails server and see what we get. Everything is working great except the form doesn't really work and the data isn't real. The next post we will look at how to use $resource to communicate with our rails API we built in the first post. 
+
+
 
 
