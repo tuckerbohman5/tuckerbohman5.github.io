@@ -46,11 +46,30 @@ We are overwritting the default as_json method with our own custom method. This 
   <li ng-repeat="book in ctrl.books">
     <h3>{{ book.title }}</h3>
     <p>
-      {{ book.author.last_name + ', ' + book.author.first_name }}
+     Author: {{ book.author.last_name + ', ' + book.author.first_name }}
+     Reading Level: {{ book.reading_level.level }}
+     Owner: {{ book.teacher.title + '. ' + book.teacher.last_name }}
     </p>
   </li>
 </ul>
 ```
 
-Notice we are calling the author associated with the book's name and adding a little formatting so that it is lastname, firstname. This will now work. 
+Notice we are calling the author associated with the book's name and adding a little formatting so that it is lastname, firstname. This will now work but it is not exactly what we want for the final stages of this application. We are going to make some changes eventually to make this application better but for now lets look at what the requirements are for this final project: 
+
+#####ANGULAR
+
+1. Must use an Angular Front-End that includes at least 5 pages
+2. Must contain some sort of nested views
+3. Must contain some sort of searching as well as filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
+4. Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
+5. Links should work correctly. Ex: Clicking on a product in a list, should take you to the show page for that product
+6. Data should be validated in Angular before submission
+7. Must talk to the Rails backend using $http and Services.
+
+#####RAILS
+
+1. Backend created with JSON that accepts and stores the data for Angular
+
+Our rails backend has been created. We will have to make a few changes definitely but for now we have the basics working. We are also communicating correctly with angular using $resource. I am going to work on creating a plan for the rest of the website and will write another post later on. 
+
 
