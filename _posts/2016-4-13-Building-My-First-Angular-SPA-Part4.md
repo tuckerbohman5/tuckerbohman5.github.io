@@ -70,6 +70,6 @@ Notice we are calling the author associated with the book's name and adding a li
 
 1. Backend created with JSON that accepts and stores the data for Angular
 
-Our rails backend has been created. We will have to make a few changes definitely but for now we have the basics working. We are also communicating correctly with angular using $resource. I am going to work on creating a plan for the rest of the website and will write another post later on. 
+Our rails backend has been created. We will have to make a few changes definitely but for now we have the basics working. We are also communicating correctly with angular using $resource. I am going to work on creating a plan for the rest of the website and will write another post later on. Here is the [repo](https://github.com/tuckerbohman5/angular-classroom-library) for my finished project. As well as a youtube video [demo](https://www.youtube.com/watch?v=caqo-MpQpV4). Feel free to leave any feedback on my code and I will continue to make improvements to the functionality. 
 
 
