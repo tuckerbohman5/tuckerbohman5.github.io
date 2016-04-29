@@ -4,11 +4,16 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-Some information about you!
+I have a passion for building great things. Check out what I have been working on below:
 
-### More Information
+### My Projects
 
-I am an accountant with a passion for technology and building great things.
+##### [The Loop](https://morning-mountain-34367.herokuapp.com)
+
+I built this application with a group of friends from school. Roberto Mesado and Frank Nowinski teamed up with me to build this awesome event finder. 
+Technology Used: 
+Ruby on Rails, Javascript, AngularJS, HTML, CSS, Google Maps, Devise, ExternalAPI. 
+[GitHub Repo](https://github.com/onyoo/TheLoop)
 
 ### Contact me
 
