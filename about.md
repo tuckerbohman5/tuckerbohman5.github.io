@@ -12,4 +12,6 @@ I am an accountant with a passion for technology and building great things.
 
 ### Contact me
 
-[tucker.bohman@gmail.com](mailto:tucker.bohman@gmail.com)
+Phone: (435)841-7834
+
+Email: [tucker.bohman@gmail.com](mailto:tucker.bohman@gmail.com)
