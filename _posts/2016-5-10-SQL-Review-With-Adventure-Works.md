@@ -8,14 +8,18 @@ The first step I took was to create an Azure account with Microsoft. I then sear
  Author some SQL queries against this database, demonstrating knowledge of several of the following: joins, grouping, window functions, common table expressions, etc.  Also, author some queries against the system tables to bring back some information about the SQL Server instance or the AdventureWorksLT2012 database.
  
 Please provide the queries and results for the below:
+
 1.  Please show the title and last name of customers, Company Name, and Address (Address lines 1 and 2, City, State, and Postal Code). If there is no address line 2 please show it as blank.
 
+```sql
 SELECT title, lastName, companyName, addressLine1, ISNULL(addressLine2,'') as AddressLine2, city, stateProvince, postalCode
 FROM SalesLT.customer
 INNER JOIN SalesLT.customerAddress ON SalesLT.customer.CustomerID = salesLT.CustomerAddress.CustomerID
 INNER JOIN SalesLT.address on salesLT.CustomerAddress.AddressID = salesLT.Address.AddressID
+```
 
 I used the ISNULL function to replace all null values for addressline2 with a blank space per the instructions.
+
 2.  Please provide the count of products with a standard cost greater than 500, both the number of products and number of prices.
 
 SELECT COUNT(name) as ProductCount, COUNT(DISTINCT StandardCost) as DistinctStandardCost, COUNT(DISTINCT ListPrice) as DistinctPrices
