@@ -33,6 +33,17 @@ Amazon RDS or Relational Database Service makes it easy to setup, maintain and s
 
 Amazon CloudFront is a global content delivery network also known as a CDN. This service can be combined with the other great Amazon Web Services to give developers an easy way to distribute content to end users with low latency, high data transfer speeds, and no minimum use requirements. CloudFront can be used to deliver your entire website including dynamic, static, streaming and interactive content using a global network of edge locations. Content requests are automatically routed to the nearest edge location to allow content to be delivered with the best possible performance. 
 
+##### Amazon ElastiCache
+
+ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. ElastiCache supports two open-source in-memory caching engines:
+
+* Memcached - a widely adopted memory object caching system. ElastiCache is protocol compliant with Memcached, so popular tools that you use today with existing Memcached environments will work seamlessly with the service.
+
+* Redis – a popular open-source in-memory key-value store that supports data structures such as sorted sets and lists. 
+
+Amazon ElastiCache automatically detects and replaces failed nodes, reducing the overhead associated with self-managed infrastructures and provides a resilient system that mitigates the risk of overloaded databases, which slow website and application load times. In-memory caching can be set up in just minutes using the AWS managment console. 
+
+
 
 
 
