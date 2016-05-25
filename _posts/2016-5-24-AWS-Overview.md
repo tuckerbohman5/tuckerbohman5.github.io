@@ -19,7 +19,14 @@ OpsWorks offers templates for common tasks related to application servers and da
 
 ##### Amazon S3
 
-Amazon S3 or Amazon Simplified Storage Service is a highly scalable cloud storage. Amazon S3 is a very easy to use object storage service with an interface that enables you to store and retrieve any amount of data from anywhere on the web. The best part is you only pay for what you use. This is great for scalabilty of an application. Amazon S3 also automatically duplicates your data and stores it on different servers to help protect your data. 
+Amazon S3 or Amazon Simplified Storage Service is a highly scalable cloud storage. Amazon S3 is a very easy to use object storage service with an interface that enables you to store and retrieve any amount of data from anywhere on the web. The best part is you only pay for what you use. This is great for scalabilty of an application. Amazon S3 also automatically duplicates your data and stores it on different servers to help protect your data. Amazon S3 also offers different classes of storage depeneding on how frequently the data will be accessed from frequent access to long term archiving, Amazon S3 can do it all. 
+
+##### DynamoDB
+
+Amazon Dynamo DB is a fast and flexible NoSQL database service. NoSQL databases are a high performance and non-relational type of data storage. NoSQL databases utilize a variety of data models, including document, graph, key-value, and columnar.
+It provides consistent single-digit millisecond latency no matter the scale of your application. This cloud based database supports both document and key-value store models. Because of its flexible data model and reliability it is a great fit for almost any type of application. 
+
+
 
 
 
