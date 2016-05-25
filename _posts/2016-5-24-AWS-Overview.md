@@ -35,13 +35,15 @@ Amazon CloudFront is a global content delivery network also known as a CDN. This
 
 ##### Amazon ElastiCache
 
-ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. ElastiCache supports two open-source in-memory caching engines:
+As your application grows in popularity poor performance can arise as heavy loads are put on your applications. ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. ElastiCache supports two open-source in-memory caching engines:
 
-* Memcached - a widely adopted memory object caching system. ElastiCache is protocol compliant with Memcached, so popular tools that you use today with existing Memcached environments will work seamlessly with the service.
+* Memcached - a widely adopted memory object caching system. ElastiCache is protocol compliant with Memcached, so popular tools that you use today with existing Memcached environments will work seamlessly with the service. This is the simple option.
 
-* Redis – a popular open-source in-memory key-value store that supports data structures such as sorted sets and lists. 
+* Redis – a popular open-source in-memory key-value store that supports data structures such as sorted sets and lists. Redis is better for more advanced needs like data structures. 
 
 Amazon ElastiCache automatically detects and replaces failed nodes, reducing the overhead associated with self-managed infrastructures and provides a resilient system that mitigates the risk of overloaded databases, which slow website and application load times. In-memory caching can be set up in just minutes using the AWS managment console. 
+
+Obviously this post only covers a few of the great things you can do with AWS and there is still much more to learn. I am going to complete these [trainings](https://aws.amazon.com/training/self-paced-labs/).
 
 
 
